@@ -2,9 +2,11 @@ import sqlite3
 import requests
 import os
 
-base_url = os.environ.get('base_url')
+import paras
+
+base_url = paras.base_url
 api_url = base_url + 'graphql'
-api_key = os.environ.get('api_key')
+api_key = paras.api_key
 
 headers = {
     'Content-Type': 'application/json',

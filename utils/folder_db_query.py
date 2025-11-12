@@ -1,8 +1,31 @@
 import sqlite3
 
 
+def init_db():
+    conn1 = sqlite3.connect('data/folders.db')
+    cursor = conn1.cursor()
+
+    cursor.execute('''
+            CREATE TABLE IF NOT EXISTS folders (
+                folder_id TEXT PRIMARY KEY,
+                read_status INTEGER CHECK (read_status IN (0, 1)),
+                like_status INTEGER CHECK (like_status IN (0, 1)),
+                delete_status INTEGER CHECK (delete_status IN (0, 1))
+            )
+            ''')
+
+    cursor.execute('''
+            INSERT OR IGNORE INTO folders (folder_id, read_status, like_status, delete_status)
+            VALUES ('favorites', 0, 0, 0)
+        ''')
+
+    conn1.commit()
+    conn1.close()
+
 def folder_status_process(folder_id, root_folders, folder_has_subfolders):
     # 文件夹状态处理
+    print(folder_id)
+    print(root_folders)
     folder_details = {}
     conn1 = sqlite3.connect('data/folders.db')
     cursor = conn1.cursor()
@@ -16,38 +39,6 @@ def folder_status_process(folder_id, root_folders, folder_has_subfolders):
         )
         ''')
 
-    # cursor.execute('''
-    #     CREATE TABLE IF NOT EXISTS new_folders (
-    #         folder_id TEXT PRIMARY KEY,
-    #         read_status INTEGER CHECK (read_status IN (0, 1)),
-    #         like_status INTEGER CHECK (like_status IN (0, 1)),
-    #         delete_status INTEGER CHECK (delete_status IN (0, 1))
-    #     )
-    # ''')
-    #
-    # # 复制数据到新表
-    # cursor.execute('''
-    #     INSERT INTO new_folders (folder_id, read_status, like_status, delete_status)
-    #     SELECT folder_id, read_status, like_status, delete_status FROM folders
-    # ''')
-    #
-    # # 删除原表
-    # cursor.execute('DROP TABLE folders')
-    #
-    # # 重命名新表为原表名称
-    # cursor.execute('ALTER TABLE new_folders RENAME TO folders')
-
-    # cursor.execute("PRAGMA table_info(folders)")
-    # columns = [column[1] for column in cursor.fetchall()]
-    #
-    # if 'delete_status' not in columns:
-    #     cursor.execute('''
-    #         ALTER TABLE folders
-    #         ADD COLUMN delete_status INTEGER CHECK (delete_status IN (0, 1)) DEFAULT 0
-    #         ''')
-    #     print("Column 'delete_status' added.")
-    # else:
-    #     print("Column 'delete_status' already exists.")
 
     # 处理子文件夹的已读状态
     read_status = True

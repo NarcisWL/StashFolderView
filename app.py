@@ -2,21 +2,23 @@ import hashlib
 import logging
 import sqlite3
 from datetime import timedelta, datetime, timezone
+
+import paras
 from utils import stash_query
 import requests
 import os
 from flask import Flask, render_template, request, Response, jsonify, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from utils.folder_db_query import folder_status_process
+from utils.folder_db_query import folder_status_process, init_db
 
 # v3
 app = Flask(__name__)
 app.secret_key = 'stash-folder-view'
-base_url = os.environ.get('base_url')
-jump_url = os.environ.get('jump_url', base_url)
-username = os.environ.get('username')
-password = os.environ.get('password')
-api_key = os.environ.get('api_key')
+base_url = paras.base_url
+jump_url = paras.jump_url
+username = paras.username
+password = paras.password
+api_key = paras.api_key
 app.config['SESSION_COOKIE_NAME'] = 'stash-folder-view'
 logged = False
 network_status = 1  # 默认为内网模式
@@ -35,6 +37,7 @@ headers = {
 db = SQLAlchemy(app)
 app.debug = True
 
+init_db()
 
 @app.route('/image/<path:image_id>')
 def get_image(image_id):
