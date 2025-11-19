@@ -5,23 +5,40 @@ body {
 }
 
 .floating-btn {
-    width: 60px;  /* 设置按钮的大小 */
-    height: 60px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 50%;  /* 让按钮变成圆形 */
-    background-color: var(--primary-color);  /* 设置按钮背景颜色为灰色 */
-    border: none;  /* 移除默认边框 */
-    position: fixed;  /* 固定按钮在页面右下角 */
-    bottom: 20px;  /* 离底部20px */
-    right: 20px;  /* 离右边20px */
+    width: 64px;
+    height: 64px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
     cursor: pointer;
     outline: none;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-fast);
+    z-index: 999;
+}
+
+.floating-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(74, 144, 226, 0.4);
+}
+
+.floating-btn:active {
+    transform: translateY(-2px) scale(1.02);
 }
 
 #actionButton i {
-    font-size: 24px;  /* 可以根据需要调整大小 */
+    font-size: 26px;
     color: var(--icon-color);
+    transition: transform var(--transition-fast);
+}
+
+.floating-btn:hover i {
+    transform: scale(1.1);
 }
 
 

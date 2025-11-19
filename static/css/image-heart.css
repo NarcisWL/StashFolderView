@@ -1,34 +1,53 @@
 /*图片爱心*/
 .like-icon {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 18px;
+    bottom: 12px;
+    right: 12px;
+    font-size: 24px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+}
+
+.grid-item:hover .like-icon {
+    opacity: 1;
 }
 
 .like-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .fas.fa-heart {
-    color: red; /* 红色爱心 */
+    color: var(--folder-like-color);
+    filter: drop-shadow(0 2px 4px rgba(255, 107, 157, 0.5));
 }
 
 .far.fa-heart {
-    color: white; /* 空心爱心 */
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .pre-like-icon {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 18px;
+    bottom: 12px;
+    right: 12px;
+    font-size: 24px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
 }
 
 .pre-like-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
+    background: rgba(0, 0, 0, 0.6);
 }

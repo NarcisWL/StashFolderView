@@ -1,90 +1,119 @@
 /* 顶部工具栏 */
 .toolbar {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     font-size: 16px;
     color: var(--icon-color);
-    padding: 10px 10px;
+    padding: 12px 20px;
     width: 100%;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     box-sizing: border-box;
     z-index: 1000;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
 }
 
 .delete-btn i {
-    font-size: 24px;
-    margin-left: 10px;
+    font-size: 22px;
+    margin-left: 12px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all var(--transition-fast);
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .delete-btn i:hover {
-    color: black; /* 鼠标悬停时显示暗红色 */
+    color: var(--danger-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 .like-btn:hover i {
-    /*background-color: red;*/
-    color: red; /* 悬停时变红 */
+    color: var(--folder-like-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 .check-btn:hover i {
-    /*background-color: red;*/
-    color: lightgray; /* 悬停时变红 */
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 .like-btn,
 .check-btn{
-    margin-left: 10px; /* 控制两个按钮之间的间距 */
-    cursor: pointer; /* 鼠标悬停时显示可点击 */
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.like-btn i,
+.check-btn i,
+.setting-btn i,
+.home-btn i {
+    transition: all var(--transition-fast);
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .home-btn{
     font-size: 22px;
-    margin-left: 10px;
+    margin-left: 12px;
     cursor: pointer;
 }
 
-/* 退出按钮样式 */
+.home-btn:hover i {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
 .setting-btn {
     cursor: pointer;
-    margin-left: 10px; /* 控制两个按钮之间的间距 */
-    /*{#margin-bottom: 10px;#}*/
-    font-size: 24px; /* 调整图标大小 */
+    margin-left: 12px;
+    font-size: 22px;
     display: inline-flex;
     align-items: center;
 }
 
-/* 图标大小和颜色 */
-.setting i {
-    transition: color 0.3s ease;
+.setting-btn:hover i {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(90deg);
 }
 
 .like-btn i,
 .check-btn i{
-    font-size: 24px; /* 设置图标的大小 */
+    font-size: 22px;
 }
 
 .menu-btn {
-    font-size: 26px;
-    margin-left: 20px;
+    font-size: 24px;
+    margin-left: 8px;
     cursor: pointer;
 }
+
 .menu-btn i {
-    /*{#font-size: 28px;#}*/
-    /*{#margin-left: 20px;#}*/
-    /*{#cursor: pointer;#}*/
-    transform: translateY(2px); /* 向下移动图标 */
+    transform: translateY(2px);
+    transition: all var(--transition-fast);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.menu-btn:hover i {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(2px) scale(1.1);
 }
 .folders_name{
     justify-self: center;
     width: 30%;
     white-space: nowrap;
-    overflow: hidden;  /* 隐藏溢出的部分 */
-    text-overflow: ellipsis;  /* 显示省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.3px;
 }
 
 @media (max-width: 600px) {

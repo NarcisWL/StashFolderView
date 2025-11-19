@@ -1,13 +1,30 @@
 .files-container {
     width: 80%;
-    /*{#flex-grow: 1;  !* 占满剩余空间 *!#}*/
-    max-height: calc(100vh - 70px);
+    max-height: calc(100vh - 60px);
     overflow-y: auto;
-    margin-top: 70px;
-    /*{#flex-direction: inherit;#}*/
-    /*{#display: flex; !* 使用 flexbox 来确保内容居中 *!#}*/
-    flex-wrap: wrap; /* 保证内容换行 */
-    justify-content: center; /* 水平方向居中 */
+    margin-top: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--background-color);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--background-color);
+}
+
+.files-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.files-container::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+.files-container::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.files-container::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }
 
 
@@ -17,11 +34,9 @@
     display: -webkit-flex;
     flex-wrap: wrap;
     max-height: 100vh;
-    padding-top: 20px;
+    padding: 24px 20px;
     justify-content: center;
-    /*{#justify-content: center; !* 确保图片项在父容器内居中 *!#}*/
-    gap: 10px;
-    /*{#flex-direction: column;#}*/
+    gap: 16px;
 }
 
 .image-box{
@@ -32,48 +47,81 @@
 }
 
 .pagination {
-    /*{#flex-grow: 1;#}*/
-    margin-top: auto; /* 推到父容器底部 */
+    margin-top: auto;
     text-align: center;
-    padding: 10px;
-    /*{#width: auto;#}*/
-    /*{#background-color: #f0f0f0; !* 背景颜色，可选 *!#}*/
+    padding: 32px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-item {
-    /*{#display: flex;#}*/
-    width: 250px; /* 固定宽度 */
-    margin-bottom: 5px; /* 控制垂直间距 */
+    width: 250px;
+    margin-bottom: 8px;
     position: relative;
-    overflow: hidden; /* 防止溢出 */
-    /*flex: 1;*/
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    background: var(--card-bg);
+}
+
+.grid-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
 }
 
 .grid-item img {
-    width: 100%; /* 宽度始终填满容器 */
-    height: auto; /* 高度根据宽度自动计算 */
-    object-fit: cover; /* 保持图片比例，裁切不合适的部分 */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
 }
 .page-btn {
-    padding-top: 20px;
-    margin: 0 20px;
-    background-color: transparent;  /* 去除按钮背景颜色 */
-    border: none; /* 去除按钮边框 */
-    color: var(--primary-color); /* 按钮文字颜色设置为蓝色 */
-    font-size: 18px; /* 可以根据需求调整按钮文字大小 */
-    cursor: pointer; /* 鼠标悬停时变为指针 */
+    padding: 12px 24px;
+    margin: 0 12px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
 
+.page-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.page-btn:active {
+    transform: translateY(0);
 }
 
 .page-btn.disabled {
-    color: #ccc;
+    background: linear-gradient(135deg, #D1D5DB, #9CA3AF);
+    color: #6B7280;
+    cursor: not-allowed;
     pointer-events: none;
+    box-shadow: none;
 }
 
 .current-page {
-    font-size: 18px;
-    color: var(--primary-color);
-    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color-contrast);
+    margin: 0 16px;
+    padding: 8px 16px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
 }
 
 .play-icon {
@@ -81,19 +129,40 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 48px;
     color: white;
-    display: none; /* 默认不显示 */
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: all var(--transition-fast);
+    opacity: 0;
 }
 
 .grid-item.video .play-icon {
-    display: block; /* 如果是视频则显示播放图标 */
+    display: flex;
+    opacity: 1;
+}
+
+.grid-item.video:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: rgba(74, 144, 226, 0.9);
 }
 
 .no-media-message {
-    font-size: 20px;
-    color: #888;
+    font-size: 18px;
+    font-weight: 500;
+    color: #9CA3AF;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 80px;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
 }
 

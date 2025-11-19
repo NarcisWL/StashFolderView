@@ -1,21 +1,20 @@
 .breadcrumb {
     width: 90%;
     margin: 0 auto;
-    /*margin-left: 30px;*/
-    /*margin-right: 20px;*/
-    /*{#padding-top: 10px;#}*/
     justify-self: center;
-    /*padding-bottom: 20px;*/
-    padding: 10px;
+    padding: 14px 20px;
     text-align: start;
-    font-size: 16px;
-    max-height: 70px;
+    font-size: 15px;
+    max-height: 80px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-fast);
+}
 
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 15px;  /* 设置圆角边框 */
-    /*background-color: #333333;*/
-
+.breadcrumb:hover {
+    box-shadow: var(--shadow-md);
 }
 @media (max-width: 630px) {
     .breadcrumb{
@@ -41,7 +40,16 @@
 
 .breadcrumb a {
     text-decoration: none;
-    color: black;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.breadcrumb a:hover {
+    background-color: var(--highlighted);
+    color: var(--secondary-color);
 }
 .folder_path {
     /*padding-right: calc(20%);*/
@@ -50,6 +58,7 @@
     overflow: hidden; /* 隐藏溢出的文字 */
 }
 .breadcrumb span {
-    margin: 0 5px;
-
+    margin: 0 8px;
+    color: #9CA3AF;
+    font-weight: 400;
 }

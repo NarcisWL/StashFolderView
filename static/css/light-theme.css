@@ -1,12 +1,22 @@
 /* 默认主题：浅色主题 */
 :root {
-    --primary-color: #697EBF;
-    --secondary-color: #5a79ba;
-    --background-color: #f0f0f0;
+    --primary-color: #4A90E2;
+    --secondary-color: #357ABD;
+    --background-color: #F8F9FA;
     --text-color: #fff;
     --text-color-read: #111;
     --icon-color: #fff;
-    --folder-like-color: #ff6464;
-    --text-color-contrast: black;
-    --highlighted:#B0BEDE;
+    --folder-like-color: #FF6B9D;
+    --text-color-contrast: #2C3E50;
+    --highlighted: #E3F2FD;
+    --card-bg: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --accent-color: #10B981;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
 }
