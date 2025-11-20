@@ -2,10 +2,10 @@
 .folders-container {
     display: flex;
     width: 20%;
-    margin-top: 60px;
+    margin-top: 0;
     padding: 20px 16px;
     box-sizing: border-box;
-    max-height: calc(100vh - 60px);
+    max-height: calc(100vh - 80px);
     height: 100vh;
     transition: all var(--transition-normal);
     border-right: 1px solid var(--border-color);

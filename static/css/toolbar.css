@@ -116,6 +116,11 @@
     letter-spacing: 0.3px;
 }
 
+/* Add spacing so fixed toolbar doesn't overlap page content */
+.container {
+    padding-top: 80px; /* toolbar height (60px) + 20px gap */
+}
+
 @media (max-width: 600px) {
     .folders_name{
         display: none;

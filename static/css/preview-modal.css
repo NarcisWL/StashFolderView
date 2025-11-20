@@ -99,7 +99,7 @@
     top: 24px;
     right: 24px;
     color: white;
-    font-size: 36px;
+    font-size: 0; /* reset text size, icon will define size */
     font-weight: normal;
     cursor: pointer;
     z-index: 1002;
@@ -117,6 +117,15 @@
 .close:hover {
     background: rgba(239, 68, 68, 1);
     transform: scale(1.1) rotate(90deg);
+}
+
+/* ensure the icon inside .close is visually centered */
+.close i {
+    font-size: 18px; /* smaller, centered X */
+    line-height: 1;
+    color: white;
+    display: inline-block;
+    transform: none; /* avoid inheriting rotate */
 }
 
 .image-count {
